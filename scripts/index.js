@@ -1,7 +1,5 @@
 const year = document.getElementById("current_year");
 const lastModified = document.getElementById("last_modified");
-const mainnav = document.querySelector('nav')
-const hambutton = document.querySelector('#menu');
 
 const today = new Date();
 
@@ -9,14 +7,45 @@ year.innerHTML = `<span>${today.getFullYear()}</span>`;
 
 lastModified.innerHTML = `<span>Last Modified: ${new Date(document.lastModified)}</span>`;
 
-document.getElementsByClassName
-hambutton.addEventListener('click', () => {
-    mainnav.classList.toggle('show');
-    hambutton.classList.toggle('show');
-});
 
+function calculate() {
+    const form = document.getElementById('calculatorForm')
+    const requestFormData = new FormData(form);
 
-const countries = ["Canada", "Chili", "Colombia", "Croatia", "Costa Rica"];
-const countriesLong = countries.filter((country) => country.length > 7);
+    const data = {};
+    for (let [key, value] of requestFormData.entries()) {
+        data[key] = value;
+    }
+    attendance = data.attendance;
+    breadSize = data.breadSize;
+    waterCups = data.numOfWater;
+    special = data.special;
+    glutenFree = data.glutenFree;
+    glutenFreePersons = data.glutenFreePersons;
 
-const yout = 0;
+    let breadCount = calculateBread(attendance, breadSize, special);
+    let waterCount = calculateWater(attendance, waterCups);
+    display(breadCount, waterCount);
+}
+
+function display(breadCount, waterCount) {
+    const breadElement = document.getElementById("bread");
+    const waterElment = document.getElementById("water");
+    breadElement.innerHTML = breadCount;
+    waterElment.innerHTML = waterCount;    
+}
+function calculateBread(attendance, breadSize, special) {
+    if (special === "yes") {
+
+        return attendance * 1.5 / breadSize;
+    }
+    return attendance / breadSize;
+}
+function calculateWater(attendance, waterCups) {
+    if (special === "yes") {
+
+        return attendance * 1.5 / waterCups;
+    }
+    return attendance / waterCups;
+}
+

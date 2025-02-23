@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bread Calculator</title>
+    <title>Sacrament Calculator</title>
     <meta name="description" content="WDD 131 - Dynamic Web Fundamentals - Bradley Gardner - Final Project">
     <meta name="author" content="Bradley Gardner">
     <script src="scripts/index.js" defer></script>
@@ -28,32 +28,29 @@
         <h2>Please use the calculator below to determine how much bread and water you need for the Sacrament</h2>
         <section>
             <h3>Form</h3>
-            <form onsubmit="saveQuote(event)" class="rqf" id="new_quote">
+            <form class="rqf" id="calculatorForm">
                 <fieldset>
-                    <legend>Contact Information</legend>
-                    <label>First Name <input type="text" name="fname" required></label>
-                    <label>Last Name <input type="text" name="lname" required></label>
-                    <label>Phone <input type="tel" name="phone"></label>
-                    <label>Email <input type="email" name="email" required></label>
-                </fieldset>
-                <fieldset>
-                    <Legend>Project Information</Legend>
-                    <label>Type of Job<select name="type">
+                    <Label>What is the expected attendance? <input type="number" name="attendance"></Label>
+                    <label>Size of Bread<select name="breadSize">
                             <option value="">Please Select</option>
-                            <option value="Residential">Residential</option>
-                            <option value="Commercial">Commercial</option>
-                            <option value="Industrial">Industrial</option>
+                            <option value="5">Small</option>
+                            <option value="8">Medium</option>1
+                            <option value="10">Large</option>
                         </select></label>
-                    <Label>Anticipated Completion Date<input type="date" name="completeDate"></Label>
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description"></textarea>
-                    <label>Do you have a permit?<input type="checkbox" name="permit" value="Yes"></label>
+                    <Label>How many cups per water try? <input type="number" name="numOfWater"></Label>
+                    <Label>Is this a special sunday with a farewall or homecoming?<input type="checkbox" name="special" value="Yes"></Label>
+                    <label>Do you need gluten free bread?<input type="checkbox" name="glutenFree" value="Yes"></label>
                 </fieldset>
-                <input type="submit" value="Send Quote Request">
+                <fieldset>
+                    <label>How many people are gluten free <input type="number" name="glutenFreePersons" required></label>
+                </fieldset>
+                <input type="button" value="Calculate" onclick="calculate(event)">
             </form>
         </section>
         <section>
             <h3>Results</h3>
+            <h4 id="bread">Bread Text</h4>
+            <h4 id="water">Water Text</h4>
         </section>
     </main>
     <footer>

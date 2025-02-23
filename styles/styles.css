@@ -24,6 +24,8 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
+    max-width: 1200px;
+    margin: auto auto;
 }
 
 h1,
@@ -119,6 +121,7 @@ main {
     padding: .5rem;
     background-color: var(--accent_gray);
     grid-column: 1 / 2;
+    max-width: 1200px;
 }
 
 aside {
@@ -237,8 +240,6 @@ section p {
 
 @media (min-width: 1200px) {
     body {
-        display: grid;
-        grid-template: auto 1fr auto / auto auto;
     }
 
     main h2 {
@@ -248,4 +249,9 @@ section p {
     aside {
         max-width: 300px;
     }
+}
+
+label {
+    display: block;
+    margin-top: auto;
 }
