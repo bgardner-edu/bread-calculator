@@ -31,8 +31,8 @@ function calculate() {
 function display(breadCount, waterCount) {
     const breadElement = document.getElementById("bread");
     const waterElment = document.getElementById("water");
-    breadElement.innerHTML = breadCount;
-    waterElment.innerHTML = waterCount;    
+    breadElement.innerHTML = "Number of slices of Bread: " + breadCount;
+    waterElment.innerHTML = "Number of water trays: " + waterCount;    
 }
 function calculateBread(attendance, breadSize, special) {
     if (special === "yes") {
