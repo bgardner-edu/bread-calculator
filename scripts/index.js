@@ -25,14 +25,16 @@ function calculate() {
 
     let breadCount = calculateBread(attendance, breadSize, special);
     let waterCount = calculateWater(attendance, waterCups);
-    display(breadCount, waterCount);
+    display(breadCount, waterCount, glutenFreePersons);
 }
 
-function display(breadCount, waterCount) {
+function display(breadCount, waterCount, glutenFreeCount) {
     const breadElement = document.getElementById("bread");
     const waterElment = document.getElementById("water");
-    breadElement.innerHTML = "Number of slices of Bread: " + breadCount;
-    waterElment.innerHTML = "Number of water trays: " + waterCount;    
+    const glutenFreeElment = document.getElementById("glutenFree");
+    breadElement.innerHTML = "Number of slices of Bread: " + Math.ceil(breadCount);
+    waterElment.innerHTML = "Number of water trays: " + Math.ceil(waterCount);    
+    glutenFreeElment.innerHTML = "Number of gluten free peices: " + Math.ceil(glutenFreeCount);
 }
 function calculateBread(attendance, breadSize, special) {
     if (special === "yes") {
