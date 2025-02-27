@@ -37,6 +37,9 @@ function display(breadCount, waterCount, glutenFreeCount) {
     glutenFreeElment.innerHTML = "Number of gluten free peices: " + Math.ceil(glutenFreeCount);
 }
 function calculateBread(attendance, breadSize, special) {
+    if (attendance <= 0 || breadSize <= 0) {
+        return 0;
+    }
     if (special === "yes") {
 
         return attendance * 1.5 / breadSize;
