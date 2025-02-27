@@ -34,7 +34,7 @@ function display(breadCount, waterCount, glutenFreeCount) {
     const glutenFreeElment = document.getElementById("glutenFree");
     breadElement.innerHTML = "Number of slices of Bread: " + Math.ceil(breadCount);
     waterElment.innerHTML = "Number of water trays: " + Math.ceil(waterCount);    
-    glutenFreeElment.innerHTML = "Number of gluten free peices: " + Math.ceil(glutenFreeCount);
+    glutenFreeElment.innerHTML = "Number of gluten free pieces: " + Math.ceil(glutenFreeCount);
 }
 function calculateBread(attendance, breadSize, special) {
     if (attendance <= 0 || breadSize <= 0) {
